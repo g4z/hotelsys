@@ -1,0 +1,20 @@
+
+.hotel-panel {
+    /*border: 1px dotted red;*/
+    padding: 2em;
+    align-content: center;
+    text-align: center;
+    background-color: #efefef;
+    cursor: pointer;
+}
+
+.hotel-panel:hover {
+    background-color: #ffefef;
+}
+
+
+.hotel-panel > img {
+    width: 200px;
+    margin: 1em;
+}
+

@@ -20,6 +20,10 @@ class Hotel extends Model
         return $query->where('uuid', $uuid);
     }
 
+    public function getAmenitiesAttribute($value) {
+        return json_decode($value);
+    }
+
     public function rooms() {
         return $this->hasMany('App\Room');
     }

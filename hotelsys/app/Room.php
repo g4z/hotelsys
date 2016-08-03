@@ -23,4 +23,5 @@ class Room extends Model
     public function hotel() {
         return $this->belongsTo('App\Hotel');
     }
+
 }

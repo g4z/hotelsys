@@ -12,7 +12,15 @@
 */
 
 Route::get('/', function () {
-    return view('hotels');
+    return view('welcome');
+});
+
+Route::get('/test1', function () {
+    return view('hotels'); // jquery version
+});
+
+Route::get('/test2', function () {
+    return view('hotels2');
 });
 
 Route::group(['prefix' => 'api/v1'], function () {
