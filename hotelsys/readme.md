@@ -1,25 +1,41 @@
 
-hotels
+```
 
-$table->string('name')
-$table->string('image')
-$table->text('amenities')
+In your preferred language write the following function:
+
+1) Write a function that determines if a string starts with an
+upper-case letter A-Z
+
+2) Write a function that determines the area of a circle given the
+radius
+
+3) Add up all the values in an array
+
+Then develop the following system:
+
+- Develop a webservices using laravel (https://laravel.com/) that expose
+the following apis:
+
+1) hotel list (hotel name, hotel image, hotel amenities)
+
+2) For each hotel, room list with availability and prices (room name,
+room image, room price, room availability)
+
+3) create a reservation. The reservation data should contains :
+
+A) customer data
+B) Credit card data
+C) room name, number of beds, price
 
 
-$table->integer('hotel_id')
-$table->string('name')
-$table->string('image')
-$table->float('price')
-$table->boolean('available')
-
-; reservations
-$table->room_id('room_id')
-$table->string('name')
-$table->string('email')
-$table->string('card_name')
-$table->string('card_number', 24)
-$table->string('card_expiry', 5)
-$table->integer('number_beds')
-$table->string('cost')
+- Develop a web client written in angular.js that consume the APIs.
+(https://angularjs.org/)
 
 
+For all project use git as version control system. (https://github.com/)
+
+Best regards,
+
+Filippo.
+
+```
