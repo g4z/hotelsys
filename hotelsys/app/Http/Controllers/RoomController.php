@@ -27,7 +27,11 @@ class RoomController extends Controller
 
             $uuid = $request->input('uuid');
 
-            $rooms = Hotel::byUuid($uuid)->first()->rooms()->get();
+            $rooms = Hotel::byUuid($uuid)
+                            ->first()
+                            ->rooms()
+                            ->with('Hotel')
+                            ->get();
         
         } catch (Exception $e) {
             return Response::json([
