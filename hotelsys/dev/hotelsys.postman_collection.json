@@ -23,7 +23,7 @@
 			"data": [
 				{
 					"key": "uuid",
-					"value": "{{ROOM_UUID}}",
+					"value": "{{ROOM_ID}}",
 					"type": "text",
 					"enabled": true
 				},
@@ -64,8 +64,8 @@
 					"enabled": true
 				},
 				{
-					"key": "",
-					"value": "",
+					"key": "from_date",
+					"value": "2016-08-21",
 					"type": "text",
 					"enabled": true
 				}
@@ -75,7 +75,7 @@
 			"tests": null,
 			"currentHelper": "normal",
 			"helperAttributes": {},
-			"time": 1470229101776,
+			"time": 1470321914983,
 			"name": "Book Room",
 			"description": "",
 			"collectionId": "4c77fb28-4dc5-6d44-910e-aa236c343981",
