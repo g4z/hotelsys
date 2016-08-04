@@ -40,9 +40,10 @@ class ReservationController extends Controller
 
         try {
 
-            $room = Room::byUuid($room_uuid)->with('Hotel')->first();
+            $room = Room::byUuid($room_uuid)->first();
 
             $reservation = new Reservation();
+            $reservation->room_id = $room->id;
             $reservation->name = $name;
             $reservation->email = $email;
             $reservation->card_number = $card_number;
@@ -51,7 +52,7 @@ class ReservationController extends Controller
             $reservation->number_beds = intval($number_beds);
             $reservation->cost = ($number_nights * $room->price);
             $reservation->save();
-        
+
         } catch (Exception $e) {
 
             return Response::json([
@@ -63,7 +64,10 @@ class ReservationController extends Controller
 
         return Response::json([
             'status' => true,
-            'reservation' => $reservation->toArray()
+            'reservation' => $reservation
+                                ->with('Room')
+                                ->with('Room.Hotel')
+                                ->first()
         ]);
 
     }
