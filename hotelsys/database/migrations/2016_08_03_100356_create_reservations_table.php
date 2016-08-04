@@ -19,8 +19,8 @@ class CreateReservationsTable extends Migration
             $table->string('uuid');
             $table->string('name');
             $table->string('email');
-            $table->string('card_number', 16);
-            $table->string('card_expiry', 5);
+            $table->text('card_number'); // encrypted
+            $table->text('card_expiry'); // encrypted
             $table->integer('number_nights');
             $table->integer('number_beds');
             $table->date('from_date');

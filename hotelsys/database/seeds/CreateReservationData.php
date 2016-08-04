@@ -4,6 +4,7 @@ use App\Room;
 use App\Reservation;
 use Faker\Factory as Faker;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Crypt;
 
 class CreateReservationData extends Seeder
 {
@@ -29,8 +30,8 @@ class CreateReservationData extends Seeder
             'room_id' => $room->id,
             'name' => $faker->name,
             'email' => $faker->email,
-            'card_number' => $faker->creditCardNumber,
-            'card_expiry' => $faker->creditCardExpirationDateString,
+            'card_number' => Crypt::encrypt($faker->creditCardNumber),
+            'card_expiry' => Crypt::encrypt($faker->creditCardExpirationDateString),
             'number_nights' => $num_nights,
             'number_beds' => $faker->numberBetween(1,3),
             'from_date' => date('Y-m-d', $maxFutureTimestamp),

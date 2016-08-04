@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Crypt;
 use Response;
 use App\Room;
 use Validator;
@@ -72,8 +73,8 @@ class ReservationController extends Controller
             $reservation->room_id = $room->id;
             $reservation->name = $name;
             $reservation->email = $email;
-            $reservation->card_number = $card_number;
-            $reservation->card_expiry = $card_expiry;
+            $reservation->card_number = Crypt::encrypt($card_number);
+            $reservation->card_expiry = Crypt::encrypt($card_expiry);
             $reservation->number_nights = intval($number_nights);
             $reservation->number_beds = intval($number_beds);
             $reservation->cost = ($number_nights * $room->price);
@@ -92,8 +93,10 @@ class ReservationController extends Controller
         return Response::json([
             'status' => true,
             'reservation' => $reservation
+                                ::where('id', $reservation->id)
                                 ->with('Room')
                                 ->with('Room.Hotel')
+                                ->limit(1)
                                 ->first()
         ]);
 

@@ -20,6 +20,10 @@ class Room extends Model
         return $query->where('uuid', $uuid);
     }
 
+    public function getPriceAttribute($value) {
+        return number_format($value, 2);
+    }
+
     public function hotel() {
         return $this->belongsTo('App\Hotel');
     }

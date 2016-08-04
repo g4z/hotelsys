@@ -37,11 +37,9 @@ class RunTestCode extends Command
      */
     public function handle()
     {
-        $reservation = \App\Reservation::find(2);
-        
-        $x = $reservation->room->hotel->toArray();
-        dd($x);
-
-        // dd($hotel->rooms->toArray());   
+        // $reservation = \App\Reservation::first();
+        // $x = $reservation->getDecryptedCardNumber();
+        // // $x = $reservation->getDecryptedCardExpiry();
+        // dd($x);
     }
 }
