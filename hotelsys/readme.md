@@ -3,6 +3,24 @@
 
  * http://adphorus.github.io/react-date-range/
 
+### Routes in Laravel project
+
+```
++--------+----------+---------------------+------+-------------------------------------------------------------+------------+
+| Domain | Method   | URI                 | Name | Action                                                      | Middleware |
++--------+----------+---------------------+------+-------------------------------------------------------------+------------+
+|        | GET|HEAD | /                   |      | Closure                                                     | web        |
+|        | POST     | api/v1/book         |      | App\Http\Controllers\ReservationController@makeReservation  | web        |
+|        | GET|HEAD | api/v1/hotels       |      | App\Http\Controllers\HotelController@listHotels             | web        |
+|        | GET|HEAD | api/v1/reservations |      | App\Http\Controllers\ReservationController@listReservations | web        |
+|        | POST     | api/v1/rooms        |      | App\Http\Controllers\RoomController@listRooms               | web        |
+|        | GET|HEAD | booking             |      | Closure                                                     | web        |
+|        | GET|HEAD | test1               |      | Closure                                                     | web        |
+|        | GET|HEAD | test2               |      | Closure                                                     | web        |
++--------+----------+---------------------+------+-------------------------------------------------------------+------------+
+
+```
+
 ### Task Notes
 
 ```
