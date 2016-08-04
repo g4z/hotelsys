@@ -23,6 +23,7 @@ class CreateReservationsTable extends Migration
             $table->string('card_expiry', 5);
             $table->integer('number_nights');
             $table->integer('number_beds');
+            $table->date('from_date');
             $table->float('cost', 10, 2);
         });
     }

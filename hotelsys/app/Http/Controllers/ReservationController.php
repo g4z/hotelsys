@@ -7,6 +7,7 @@ use App\Room;
 use Validator;
 use Exception;
 use App\Hotel;
+use Carbon\Carbon;
 use App\Reservation;
 use Illuminate\Http\Request;
 
@@ -22,6 +23,7 @@ class ReservationController extends Controller
             'card_expiry' => 'required|min:5|max:5',
             'number_beds' => 'required|integer|min:1|max:5',
             'number_nights' => 'required|integer|min:1|max:21',
+            'from_date' => 'required|date',
         ]);
 
         if ($validator->fails()) {
@@ -38,9 +40,12 @@ class ReservationController extends Controller
         $card_expiry = $request->input('card_expiry');
         $number_beds = $request->input('number_beds');
         $number_nights = $request->input('number_nights');
-
+        $from_date = $request->input('from_date');
+        
         try {
             
+            $from_date = Carbon::parse($from_date);
+
             $room = Room::byUuid($room_uuid)->first();
 
             $reservation = new Reservation();
@@ -52,6 +57,7 @@ class ReservationController extends Controller
             $reservation->number_nights = intval($number_nights);
             $reservation->number_beds = intval($number_beds);
             $reservation->cost = ($number_nights * $room->price);
+            $reservation->from_date = $from_date;
             $reservation->save();
 
         } catch (Exception $e) {
