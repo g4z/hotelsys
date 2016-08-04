@@ -1,8 +1,9 @@
 <?php
 
-use Illuminate\Database\Seeder;
-use App\Hotel;
 use App\Room;
+use App\Hotel;
+use Faker\Factory as Faker;
+use Illuminate\Database\Seeder;
 
 class CreateRoomData extends Seeder
 {
@@ -14,6 +15,7 @@ class CreateRoomData extends Seeder
      */
     public function run()
     {
+        $faker = Faker::create();
 
         $images = [
             'https://www.marinabaysands.com/content/dam/singapore/marinabaysands/master/main/home/hotel/deluxe1500x930.jpg',
@@ -33,13 +35,15 @@ class CreateRoomData extends Seeder
         for ($i = 0; $i < 10; $i++) {
             
             $hotel_id = $hotel_ids->random();
-            $name = 'Room ' . ($i + 1);
+            $name = 'Room ' . $faker->buildingNumber;
             $image = $images[$i];
+            $price = (float) '' . rand(20, 300) . '.' . rand(0, 99);
+
             Room::create([
                 'hotel_id' => $hotel_id,
                 'name' => $name,
                 'image' => $image,
-                'price' => (float) '' . rand(20, 300) . '.' . rand(0, 99),
+                'price' => $price,
                 'availability' => 'xxx'
             ]);
 
