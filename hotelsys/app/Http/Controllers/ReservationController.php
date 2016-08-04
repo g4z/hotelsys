@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Response;
 use App\Room;
 use Validator;
+use Exception;
 use App\Hotel;
 use App\Reservation;
 use Illuminate\Http\Request;
@@ -22,7 +23,7 @@ class ReservationController extends Controller
             'number_beds' => 'required|integer|min:1|max:5',
             'number_nights' => 'required|integer|min:1|max:21',
         ]);
-        
+
         if ($validator->fails()) {
             return Response::json([
                 'status' => false,
@@ -39,7 +40,7 @@ class ReservationController extends Controller
         $number_nights = $request->input('number_nights');
 
         try {
-
+            
             $room = Room::byUuid($room_uuid)->first();
 
             $reservation = new Reservation();

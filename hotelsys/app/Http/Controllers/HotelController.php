@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Response;
+use Exception;
 use App\Hotel;
 use Illuminate\Http\Request;
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Response;
 use App\Room;
 use App\Hotel;
+use Exception;
 use Validator;
 use Illuminate\Http\Request;
 
