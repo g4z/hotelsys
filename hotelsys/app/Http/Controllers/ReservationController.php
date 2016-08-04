@@ -6,13 +6,33 @@ use Response;
 use App\Room;
 use Validator;
 use Exception;
-use App\Hotel;
 use Carbon\Carbon;
 use App\Reservation;
 use Illuminate\Http\Request;
 
 class ReservationController extends Controller
 {
+    public function listReservations(Request $request) {
+
+        try {
+
+            $reservations = Reservation::with('Room')
+                            ->with('Room.Hotel')
+                            ->get();
+        
+        } catch (Exception $e) {
+            return Response::json([
+                'status' => false,
+                'errors' => [$e->getMessage()],
+            ], 500);
+        }
+
+        return Response::json([
+            'status' => true,
+            'reservations' => $reservations,
+        ]);
+    }
+
     public function makeReservation(Request $request) {
 
         $validator = Validator::make($request->input(), [
