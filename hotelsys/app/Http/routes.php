@@ -23,6 +23,10 @@ Route::get('/test2', function () {
     return view('hotels2');
 });
 
+Route::get('/booking', function () {
+    return view('booking');
+});
+
 Route::group(['prefix' => 'api/v1'], function () {
     Route::get('hotels', ['uses' => 'HotelController@listHotels']);
     Route::post('rooms', ['uses' => 'RoomController@listRooms']);
