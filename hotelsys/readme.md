@@ -1,7 +1,8 @@
 
-### React components
+### Relavent React components
 
  * http://adphorus.github.io/react-date-range/
+ * https://github.com/mxstbr/react-boilerplate
 
 ### Routes in Laravel project
 
