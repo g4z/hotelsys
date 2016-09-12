@@ -9,7 +9,7 @@
         <script type="text/javascript" src="jquery-3.1.0.min.js"></script>
         <script src="react-15.3.0/build/react.js"></script>
         <script src="react-15.3.0/build/react-dom.js"></script>
-        <script src="https://npmcdn.com/babel-core@5.8.38/browser.min.js"></script>
+        <script src="https://unpkg.com/babel-core@5.8.38/browser.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     </head>
     <body>
